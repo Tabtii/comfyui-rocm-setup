@@ -1,0 +1,99 @@
+{
+  "1": {
+    "class_type": "UnetLoaderGGUF",
+    "inputs": {
+      "unet_name": "krea2_turbo-Q5_K_M.gguf"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_4b_fp8_scaled.safetensors",
+      "type": "krea2"
+    }
+  },
+  "3": {
+    "class_type": "TextEncodeKrea2",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "prompt": "adult sexy elf woman in anime style, seductive but tasteful, elegant pointed ears, long flowing silver hair, big expressive eyes, slender fantasy figure, confident alluring pose, ornate emerald-and-gold outfit, soft glowing magic particles, clean lineart, polished anime shading, high-end illustration, beautiful face, detailed eyes, vibrant colors, studio-quality composition, no text, no watermark"
+    }
+  },
+  "4": {
+    "class_type": "TextEncodeKrea2",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "prompt": "child, loli, nude, explicit sexual content, bad anatomy, extra limbs, blurry, low quality, messy face, text, watermark, logo, realistic photo, deformed hands"
+    }
+  },
+  "5": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": 768,
+      "height": 1024,
+      "batch_size": 1
+    }
+  },
+  "6": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "seed": 26070401,
+      "steps": 8,
+      "cfg": 3.0,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "positive": [
+        "3",
+        0
+      ],
+      "negative": [
+        "4",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ],
+      "denoise": 1.0
+    }
+  },
+  "7": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "qwen_image_vae.safetensors"
+    }
+  },
+  "8": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "6",
+        0
+      ],
+      "vae": [
+        "7",
+        0
+      ]
+    }
+  },
+  "9": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ],
+      "filename_prefix": "krea2_gguf_fp8te_validated_elf"
+    }
+  }
+}
