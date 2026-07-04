@@ -40,7 +40,15 @@ def cmd_detect(args):
     for k, v in env.items():
         print(f"   {k}={v}")
 
-    torch_pkg = TORCH_VERSIONS.get(rocm_ver or gpu['rocm_min'], f"torch (ROCm {gpu['rocm_min']})")
+    rocm_key = rocm_ver or gpu['rocm_min']
+    # Try exact match, then major.minor fallback
+    torch_pkg = TORCH_VERSIONS.get(rocm_key)
+    if torch_pkg is None and rocm_key:
+        # Try truncating to major.minor (e.g. "7.2.4" -> "7.2")
+        short = ".".join(rocm_key.split(".")[:2])
+        torch_pkg = TORCH_VERSIONS.get(short, f"torch==2.6.0+rocm{short}")
+    if torch_pkg is None:
+        torch_pkg = f"torch (ROCm {gpu['rocm_min']})"
     print(f"\n\U0001f4e6 Recommended PyTorch: {torch_pkg}")
 
     if args.json:
