@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "comfyui-rocm-setup"
+version = "0.1.0"
+description = "One-click installer for ComfyUI with ROCm support on AMD RX 7000 GPUs"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Tabtii", email = "torbi95@gmail.com" }
+]
+keywords = ["comfyui", "rocm", "amd", "gpu", "installer", "rx7800", "stable-diffusion"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.scripts]
+comfy-rocm = "comfyui_rocm_setup.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Tabtii/comfyui-rocm-setup"
+Repository = "https://github.com/Tabtii/comfyui-rocm-setup"
+Issues = "https://github.com/Tabtii/comfyui-rocm-setup/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
