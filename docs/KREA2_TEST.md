@@ -125,4 +125,4 @@ The strategy separates two complementary test modes:
 - **Benchmark character** — same silver-haired emerald-eyed elf, useful for regression testing CFG/steps/sampler/VAE/text-encoder changes.
 - **Character diversity** — moon/forest/dark/fire/ice elf archetypes, useful for robustness testing and checking whether KREA2 collapses to one character.
 
-The prompt presets also include adult spicy/non-explicit and realistic/semi-realistic variants. Safety constraints are explicit: adult-only, non-explicit, no nudity, no visible genitals, no sex acts.
+The prompt presets include public benchmark, cinematic, armor-detail, and diversity variants. Private robustness prompts are intentionally not included as public defaults.

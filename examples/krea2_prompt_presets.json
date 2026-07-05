@@ -1,5 +1,6 @@
 {
   "version": 1,
+  "public_profile": true,
   "validated_stack": {
     "unet": "krea2_turbo-Q5_K_M.gguf",
     "clip": "qwen3vl_4b_fp8_scaled.safetensors",
@@ -14,50 +15,51 @@
     "width": 768,
     "height": 1024
   },
-  "negative_base": "child, loli, teen, underage, young-looking, nude, explicit sexual content, visible nipples, genitals, pornographic, sex act, vulgar pose, bad anatomy, extra limbs, deformed hands, malformed fingers, blurry, low quality, messy face, text, watermark, logo",
+  "negative_base": "child, loli, teen, underage, young-looking, unsafe sexual content, adult-content artifacts, bad anatomy, extra limbs, deformed hands, malformed fingers, blurry, low quality, messy face, text, watermark, logo",
   "presets": {
     "benchmark_anime_elf": {
-      "description": "Stable benchmark character for regression tests.",
-      "positive": "adult anime elf woman, seductive but tasteful, elegant pointed ears, long flowing silver hair, emerald green eyes, slender fantasy figure, confident alluring pose, ornate emerald-and-gold outfit, soft glowing magic particles, clean lineart, polished anime shading, high-end illustration, beautiful face, detailed eyes, vibrant colors, studio-quality composition, no text, no watermark",
+      "description": "Stable public benchmark character for regression tests.",
+      "positive": "adult anime elf woman, elegant pointed ears, long flowing silver hair, emerald green eyes, graceful fantasy portrait, ornate emerald-and-gold outfit, soft glowing magic particles, clean lineart, polished anime shading, high-end illustration, beautiful face, detailed eyes, vibrant colors, studio-quality composition, no text, no watermark",
       "negative_extra": "realistic photo",
       "recommended_seeds": [26070401, 26070402, 26070406, 26070407],
       "best_known_seeds": [26070407, 26070406, 26070402]
     },
-    "spicy_anime_elf_non_explicit": {
-      "description": "Adult spicy/tasteful anime pin-up, non-explicit.",
-      "positive": "adult anime elf woman, spicy but tasteful fantasy pin-up illustration, seductive confident pose, elegant pointed ears, long flowing silver hair, emerald green eyes, alluring expression, revealing high-fantasy lingerie armor with emerald and gold ornaments, thigh-high stockings, delicate jewelry, soft curves, elegant body proportions, magical boudoir in moonlit elven palace, glowing particles, polished anime shading, clean lineart, luxury illustration, high detail eyes, dramatic soft lighting, non-explicit, no nudity, no visible nipples, no visible genitals, no sex act, no text, no watermark",
-      "negative_extra": "realistic photo",
-      "recommended_seeds": [26070501, 26070502, 26070503, 26070504, 26070505, 26070506, 26070507, 26070508, 26070509, 26070510],
-      "best_known_seeds": [26070508, 26070503, 26070509]
-    },
-    "realistic_revealing_elf_non_explicit": {
-      "description": "Adult realistic/semi-realistic revealing fantasy portrait, non-explicit.",
-      "positive": "adult realistic elven woman, tasteful revealing high-fantasy portrait, cinematic fantasy photography style, elegant pointed ears, long flowing silver-white hair, emerald green eyes, alluring confident gaze, freckled luminous skin, delicate elf facial features, revealing emerald-and-gold fantasy lingerie armor, ornate jewelry, soft curves, elegant mature body proportions, moonlit elven palace bedroom, silk fabric, glowing magical particles, realistic skin texture, detailed face, sharp eyes, premium fantasy magazine cover, soft cinematic lighting, shallow depth of field, high detail, non-explicit, no nudity, no visible nipples, no visible genitals, no sex act, no text, no watermark",
+    "cinematic_fantasy_elf": {
+      "description": "Public cinematic fantasy style stress test, non-explicit.",
+      "positive": "adult elven woman, cinematic fantasy portrait, elegant pointed ears, long silver-white hair, emerald green eyes, ornate emerald-and-gold fantasy robe and armor, moonlit elven palace, silk fabric, glowing magical particles, realistic skin texture, detailed face, sharp eyes, premium fantasy magazine cover, soft cinematic lighting, shallow depth of field, high detail, non-explicit, no text, no watermark",
       "negative_extra": "anime, cartoon, plastic skin, uncanny face",
       "recommended_seeds": [26070601, 26070602, 26070603, 26070604, 26070605, 26070606, 26070607, 26070608],
       "best_known_seeds": [26070601, 26070608, 26070602]
+    },
+    "armor_detail_stress_test": {
+      "description": "Public detail stress test for jewelry, armor, fabric, and face coherence.",
+      "positive": "adult high elf queen, formal emerald-and-gold ceremonial armor, intricate filigree jewelry, layered silk cloak, pointed ears, silver braided hair, emerald eyes, symmetrical face, detailed armor engravings, magical forest throne room, polished fantasy illustration, clean composition, non-explicit, no text, no watermark",
+      "negative_extra": "melted armor, broken jewelry, fused fabric, distorted chest details, realistic photo",
+      "recommended_seeds": [26070701, 26070702, 26070703, 26070704],
+      "best_known_seeds": []
     }
   },
   "diversity_archetypes": [
     {
       "name": "moon_elf",
-      "positive_core": "adult realistic moon elf woman, silver hair, sapphire blue eyes, pale luminous skin, white and silver fantasy outfit, crescent moon jewelry, serene moonlit temple"
+      "positive_core": "adult moon elf woman, silver hair, sapphire blue eyes, pale luminous skin, white and silver ceremonial outfit, crescent moon jewelry, serene moonlit temple"
     },
     {
       "name": "forest_elf",
-      "positive_core": "adult realistic forest elf woman, auburn hair, green eyes, warm tan skin, leather and leaf fantasy outfit, mossy forest shrine, natural earthy colors"
+      "positive_core": "adult forest elf woman, auburn hair, green eyes, warm tan skin, leather and leaf fantasy outfit, mossy forest shrine, natural earthy colors"
     },
     {
       "name": "dark_elf",
-      "positive_core": "adult realistic dark elf woman, dark skin, white hair, violet eyes, black and silver fantasy armor, silver tattoos, obsidian palace lighting"
+      "positive_core": "adult dark elf woman, dark skin, white hair, violet eyes, black and silver fantasy armor, silver tattoos, obsidian palace lighting"
     },
     {
       "name": "fire_elf",
-      "positive_core": "adult realistic fire elf woman, copper-red hair, amber eyes, warm skin tone, crimson and gold fantasy outfit, ember glow, volcanic palace"
+      "positive_core": "adult fire elf woman, copper-red hair, amber eyes, warm skin tone, crimson and gold fantasy outfit, ember glow, volcanic palace"
     },
     {
       "name": "ice_elf",
-      "positive_core": "adult realistic ice elf woman, platinum hair, icy blue eyes, porcelain skin, crystal fantasy outfit, frozen palace, cold blue rim light"
+      "positive_core": "adult ice elf woman, platinum hair, icy blue eyes, porcelain skin, crystal fantasy outfit, frozen palace, cold blue rim light"
     }
-  ]
+  ],
+  "private_testing_note": "More aggressive private robustness prompts can be useful during local testing, but they are intentionally not included in the public presets."
 }

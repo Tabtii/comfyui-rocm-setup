@@ -79,7 +79,7 @@ This repo includes a visually validated KREA2 test workflow for RX 7800 XT / ROC
 - [`docs/KREA2_TEST.md`](docs/KREA2_TEST.md) — validated stack, known-good/known-bad paths, visual validation rules
 - [`docs/KREA2_TEST_STRATEGY.md`](docs/KREA2_TEST_STRATEGY.md) — benchmark-character, diversity, and style test strategy
 - [`examples/krea2_gguf_fp8_text_encoder_validated_workflow.json`](examples/krea2_gguf_fp8_text_encoder_validated_workflow.json) — known-good ComfyUI workflow
-- [`examples/krea2_prompt_presets.json`](examples/krea2_prompt_presets.json) — benchmark, spicy/non-explicit, realistic, and diversity prompt presets
+- [`examples/krea2_prompt_presets.json`](examples/krea2_prompt_presets.json) — public benchmark, cinematic, armor-detail, and diversity prompt presets
 
 Important: KREA2 runs are only considered valid after visual inspection. A generated PNG alone is not proof that the workflow is correct.
 

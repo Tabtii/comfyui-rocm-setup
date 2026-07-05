@@ -121,22 +121,19 @@ Use this to catch overfitting to the benchmark character and to evaluate style r
 
 Purpose: test how stable KREA2 is across style changes.
 
-Current style presets:
+Current public style presets:
 
 - polished anime fantasy
-- adult spicy but non-explicit anime pin-up
-- realistic/semi-realistic cinematic fantasy portrait
+- cinematic fantasy portrait
+- armor/detail stress test
+- character-diversity archetypes
 
-Safety constraints for adult/spicy presets:
+Public presets intentionally stay conservative and portfolio-safe. More aggressive prompts can be useful for private robustness testing, but they should not be shipped as public defaults or examples.
 
-```text
-adult, non-explicit, no nudity, no visible nipples, no visible genitals, no sex act
-```
-
-Negative prompt must include:
+Negative prompt must still include safety and quality guards:
 
 ```text
-child, loli, teen, underage, young-looking, explicit sexual content, pornographic
+child, loli, teen, underage, young-looking, unsafe adult-content artifacts, bad anatomy, deformed hands, text, watermark
 ```
 
 ## Known-good and known-bad paths
