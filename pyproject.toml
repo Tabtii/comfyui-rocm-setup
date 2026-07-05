@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]
-build-backend = "setuptools.backends._legacy:_Backend"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "comfyui-rocm-setup"
@@ -16,7 +16,6 @@ keywords = ["comfyui", "rocm", "amd", "gpu", "installer", "rx7800", "stable-diff
 classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.11",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: POSIX :: Linux",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
