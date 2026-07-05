@@ -103,7 +103,7 @@ def cmd_config(args):
     rocm_ver = get_rocm_version() or gpu['rocm_min']
     env = get_recommended_env(gpu, rocm_ver)
 
-    generate_startup_script(target, env, port=args.port)
+    generate_startup_script(target, env, port=args.port, vram_gb=gpu.get("vram_gb", 16))
     generate_config(target, gpu, rocm_ver)
 
     print(f"\u2705 Config generated at {target}")
@@ -144,6 +144,9 @@ def cmd_start(args):
     rocm_ver = get_rocm_version() or gpu['rocm_min']
     env = os.environ.copy()
     env.update(get_recommended_env(gpu, rocm_ver))
+    # ROCm performance tuning
+    env["PYTORCH_HIP_ALLOC_CONF"] = "expandable_segments:True"
+    env["MIOPEN_FIND_MODE"] = "FAST"
 
     port = args.port
     cmd = [
