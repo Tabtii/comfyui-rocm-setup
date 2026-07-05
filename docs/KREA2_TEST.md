@@ -110,3 +110,19 @@ and inspect the reference output:
 ```text
 krea2_validated_elf.png
 ```
+
+## Repeatable test improvements
+
+The chat-discovered improvements were turned into project assets:
+
+```text
+docs/KREA2_TEST_STRATEGY.md
+examples/krea2_prompt_presets.json
+```
+
+The strategy separates two complementary test modes:
+
+- **Benchmark character** — same silver-haired emerald-eyed elf, useful for regression testing CFG/steps/sampler/VAE/text-encoder changes.
+- **Character diversity** — moon/forest/dark/fire/ice elf archetypes, useful for robustness testing and checking whether KREA2 collapses to one character.
+
+The prompt presets also include adult spicy/non-explicit and realistic/semi-realistic variants. Safety constraints are explicit: adult-only, non-explicit, no nudity, no visible genitals, no sex acts.
