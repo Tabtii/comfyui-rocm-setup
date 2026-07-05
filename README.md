@@ -72,6 +72,24 @@ Unknown AMD GPUs get a best-guess fallback based on the GPU name.
 6. **Generates** `startup.sh`, `config.yaml`, and optional systemd unit
 7. **Verifies** GPU access via `torch.cuda.is_available()`
 
+## ROCm Performance Tuning
+
+The generated `startup.sh` and `comfy-rocm start` commands automatically set:
+
+| Environment Variable | Value | Effect |
+|---------------------|-------|--------|
+| `PYTORCH_HIP_ALLOC_CONF` | `expandable_segments:True` | Reduces VRAM fragmentation, avoids OOM |
+| `MIOPEN_FIND_MODE` | `FAST` | Faster MIOpen kernel selection (~20% throughput) |
+| `HSA_OVERRIDE_GFX_VERSION` | GPU-specific | Enables ROCm on unsupported-but-compatible GPUs |
+
+ComfyUI flags are auto-selected based on VRAM:
+
+| VRAM | Flags |
+|------|-------|
+| 16GB+ | `--bf16-vae --bf16-unet --bf16-text-enc` |
+| 12GB | `--bf16-vae --lowvram` |
+| <12GB | `--lowvram --bf16-vae` |
+
 ## KREA2 ROCm validation
 
 This repo includes a visually validated KREA2 test workflow for RX 7800 XT / ROCm:
